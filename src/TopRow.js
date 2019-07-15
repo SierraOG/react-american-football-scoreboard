@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Timer from "./Timer";
 
 const TopRow = (countObj) => {
     return (
@@ -11,7 +12,7 @@ const TopRow = (countObj) => {
 
             <div className="home__score">{countObj.counts.homeCount}</div>
             </div>
-            <div className="timer">00:03</div>
+            <Timer />
             <div className="away">
             <h2 className="away__name">Tigers</h2>
             <div className="away__score">{countObj.counts.awayCount}</div>

@@ -1,8 +1,9 @@
 //TODO: STEP 1 - Import the useState hook.
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
-import {useState} from "react";
+import TopRow from "./TopRow"
+import Buttons from "./Buttons"
 
 function App() {
   //TODO: STEP 2 - Establish your applictation's state with some useState hooks.  You'll need one for the home score and another for the away score.
@@ -12,33 +13,10 @@ function App() {
   return (
     <div className="container">
       <section className="scoreboard">
-        <div className="topRow">
-          <div className="home">
-            <h2 className="home__name">Lions</h2>
-
-            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
-
-            <div className="home__score">{home_count}</div>
-          </div>
-          <div className="timer">00:03</div>
-          <div className="away">
-            <h2 className="away__name">Tigers</h2>
-            <div className="away__score">{away_count}</div>
-          </div>
-        </div>
+        <TopRow counts = {{homeCount: home_count, awayCount: away_count}} />
         <BottomRow />
       </section>
-      <section className="buttons">
-        <div className="homeButtons">
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={() => setHomeCount(home_count + 7)} className="homeButtons__touchdown">Home Touchdown</button>
-          <button onClick={() => setHomeCount(home_count + 3)} className="homeButtons__fieldGoal">Home Field Goal</button>
-        </div>
-        <div className="awayButtons">
-          <button onClick={() => setAwayCount(away_count + 7)} className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick={() => setAwayCount(away_count + 3)} className="awayButtons__fieldGoal">Away Field Goal</button>
-        </div>
-      </section>
+      <Buttons counts = {{homeCount: home_count, awayCount: away_count, homeCounter: setHomeCount, awayCounter: setAwayCount}}/>
     </div>
   );
 }

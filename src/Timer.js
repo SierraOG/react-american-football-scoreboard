@@ -31,7 +31,7 @@ const Timer = () => {
   return (
     <div className="timer">
       <div className="time">
-        {seconds}s
+        00:{seconds}
       </div>
       <div className="row">
         <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
